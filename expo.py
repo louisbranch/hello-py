@@ -34,3 +34,25 @@ def gdcRecur(a,b):
   if m == 0:
     return x
   return gdcRecur(m, x % m)
+
+def lenRecur(aStr):
+  if aStr == '':
+    return 0
+  return 1 + len(aStr[1:])
+
+def isIn(char, aStr):
+
+  if len(aStr) == 0:
+    return False
+  elif len(aStr) == 1:
+    return char == aStr
+
+  middleLen = len(aStr) / 2
+  middleChar = aStr[middleLen]
+
+  if char == middleChar:
+    return True
+  if char < middleChar:
+    return False or isIn(char, aStr[0:middleLen])
+  else:
+    return False or isIn(char, aStr[middleLen:])
